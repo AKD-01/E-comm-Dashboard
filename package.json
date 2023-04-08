@@ -1,0 +1,19 @@
+{
+  "name": "e-comm-dashboard",
+  "version": "1.0.0",
+  "description": "E-commerce Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKD-01/E-comm-Dashboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AKD-01/E-comm-Dashboard/issues"
+  },
+  "homepage": "https://github.com/AKD-01/E-comm-Dashboard#readme"
+}
