@@ -17,3 +17,11 @@
   font-weight: bold;
   font-family: sans-serif;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  background-color: aquamarine;
+  text-align: center;
+  width: 100%;
+}
