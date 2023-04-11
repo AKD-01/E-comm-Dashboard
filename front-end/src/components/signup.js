@@ -4,6 +4,9 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const collectData = () => {
+    console.warn(name, email, password);
+  };
   return (
     <div className="form">
       <h1 className="signup-header">Register</h1>
@@ -34,7 +37,7 @@ const SignUp = () => {
         }}
         placeholder="Enter Password"
       />
-      <button className="btn" type="button">
+      <button className="btn" type="button" onClick={collectData}>
         Sign Up
       </button>
     </div>
