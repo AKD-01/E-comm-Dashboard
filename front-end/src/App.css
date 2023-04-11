@@ -17,6 +17,17 @@
   font-weight: bold;
   font-family: sans-serif;
 }
+.form {
+  margin-left: 30%;
+}
+
+.inputfield {
+  display: block;
+  margin: 20px;
+  padding: 7px;
+  width: 300px;
+  border: 1px solid aquamarine;
+}
 
 .footer {
   position: absolute;
