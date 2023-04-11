@@ -9,7 +9,7 @@ const SignUp = () => {
   };
   return (
     <div className="form">
-      <h1 className="signup-header">Register</h1>
+      <h1>Register</h1>
       <input
         className="inputfield"
         type="text"
