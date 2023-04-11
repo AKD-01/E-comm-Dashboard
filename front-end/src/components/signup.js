@@ -5,7 +5,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const collectData = () => {
-    console.warn(name, email, password);
+    console.log(name, email, password);
   };
   return (
     <div className="form">
@@ -21,7 +21,7 @@ const SignUp = () => {
       />
       <input
         className="inputfield"
-        type="text"
+        type="email"
         value={email}
         onChange={(e) => {
           setEmail(e.target.value);
