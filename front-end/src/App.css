@@ -29,6 +29,15 @@
   border: 1px solid aquamarine;
 }
 
+.btn {
+  margin: 20px;
+  padding: 7px;
+  width: 120px;
+  background-color: aquamarine;
+  border: 1px solid;
+  cursor: pointer;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
