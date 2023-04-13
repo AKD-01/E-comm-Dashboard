@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const navigate = useNavigate();
+  useEffect(() => {
+    const auth = localStorage.getItem("user");
+    if (auth) {
+      navigate("/");
+    }
+  });
   const LoginHandler = async () => {
     let result = await fetch("http://localhost:5000/login", {
       method: "post",
@@ -16,7 +22,7 @@ const Login = () => {
     result = await result.json();
     if (result.name) {
       localStorage.setItem("user", JSON.stringify(result));
-      navigate('/');
+      navigate("/");
     } else {
       alert("Please enter correct details!");
     }
