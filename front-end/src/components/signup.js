@@ -4,9 +4,20 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const collectData = () => {
+
+  const collectData = async () => {
     console.log(name, email, password);
+    let result = await fetch("http://localhost:5000/signup", {
+      method: "post",
+      body: JSON.stringify({ name, email, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    result = await result.json;
+    console.log(result);
   };
+
   return (
     <div className="form">
       <h1>Register</h1>
