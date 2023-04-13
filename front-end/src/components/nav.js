@@ -31,7 +31,7 @@ const Nav = () => {
           </li>
         </ul>
       ) : (
-        <ul>
+        <ul className="nav-ul nav-right">
           <li>
             <Link to="/signup">SignUp</Link>
           </li>
