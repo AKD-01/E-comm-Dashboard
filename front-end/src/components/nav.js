@@ -10,6 +10,11 @@ const Nav = () => {
   };
   return (
     <div>
+      <img
+        alt="e-commerce-logo"
+        className="logo"
+        src="https://vbetechnologies.com/media/Unorganized/e.png"
+      />
       {auth ? (
         <ul className="nav-ul">
           <li>
