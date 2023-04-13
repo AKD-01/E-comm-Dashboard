@@ -16,7 +16,8 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-    res.send(req.body);
+    let user = await User.findOne(req.body).select("-password");
+    res.send(user);
 });
 
 app.listen(5000);
