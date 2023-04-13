@@ -17,6 +17,11 @@
   font-weight: bold;
   font-family: sans-serif;
 }
+
+.nav-right {
+  text-align: right;
+}
+
 .form {
   margin-left: 30%;
 }
