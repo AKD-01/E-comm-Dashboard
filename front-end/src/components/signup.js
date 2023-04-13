@@ -14,7 +14,7 @@ const SignUp = () => {
         "Content-Type": "application/json",
       },
     });
-    result = await result.json;
+    result = await result.json();
     console.log(result);
   };
 
