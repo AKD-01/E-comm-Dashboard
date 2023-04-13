@@ -3,6 +3,9 @@ import React from "react";
 const Login = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const LoginHandler = () => {
+    console.log(email, password);
+  }
   return (
     <div className="login">
       <input
@@ -18,12 +21,12 @@ const Login = () => {
         className="inputfield"
         value={password}
         onChange={(e) => {
-            setPassword(e.target.value);
+          setPassword(e.target.value);
         }}
         type="password"
         placeholder="Enter Password"
       />
-      <button className="btn" type="button">
+      <button className="btn" onClick={ LoginHandler } type="button">
         Login
       </button>
     </div>
