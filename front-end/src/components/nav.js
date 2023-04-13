@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
   const auth = localStorage.getItem("user");
+  const logout = () => {
+    localStorage.clear();
+  };
   return (
     <div>
       <ul className="nav-ul">
@@ -20,7 +23,9 @@ const Nav = () => {
         </li>
         <li>
           {auth ? (
-            <Link to="/logout">Logout</Link>
+            <Link onClick={logout} to="/signup">
+              Logout
+            </Link>
           ) : (
             <Link to="/signup">SignUp</Link>
           )}
