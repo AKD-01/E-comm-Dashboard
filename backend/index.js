@@ -45,8 +45,17 @@ app.get("/products", async (req, res) => {
 });
 
 app.delete("/products/:id", async (req, res) => {
-  const result = await Product.deleteOne({ _id: req.params.id });
+  let result = await Product.deleteOne({ _id: req.params.id });
   res.send(result);
+});
+
+app.get("/products/:id", async (req, res) => {
+  let result = await Product.findOne({ _id: req.params.id });
+  if (result) {
+    res.send(result);
+  } else {
+    res.send({ result: "No Record Found" });
+  }
 });
 
 app.listen(5000);
