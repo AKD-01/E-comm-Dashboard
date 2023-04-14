@@ -48,11 +48,23 @@
   cursor: pointer;
 }
 
-.opbtn {
-  padding: 3px;
+.delbtn {
+  padding: .3rem;
   width: 60px;
   border: 1px solid;
-  background-color: rgb(171, 250, 224);
+  background-color: rgb(243, 63, 63);
+  border-radius: .8rem;
+  cursor: pointer;
+}
+
+.upbtn {
+  padding: .3rem;
+  width: 65px;
+  border: 1px solid;
+  background-color: rgb(125, 231, 196);
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
   border-radius: .8rem;
   cursor: pointer;
 }
