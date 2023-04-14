@@ -21,6 +21,17 @@ const ProductsList = () => {
         <li>Category</li>
         <li>Company</li>
       </ul>
+      {
+        products.map((item, index) => 
+        <ul>
+        <li>{index+1}</li>
+        <li>{item.name}</li>
+        <li>$ {item.price}</li>
+        <li>{item.category}</li>
+        <li>{item.company}</li>
+        </ul>
+        )
+      }
     </div>
   );
 };
