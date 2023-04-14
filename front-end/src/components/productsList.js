@@ -40,10 +40,10 @@ const ProductsList = () => {
           <li>{item.category}</li>
           <li>{item.company}</li>
           <li>
-            <button className="opbtn" onClick={() => deleteProduct(item._id)}>
+            <button className="delbtn" onClick={() => deleteProduct(item._id)}>
               Delete
             </button>
-            <Link to={"/update/"+item._id}>Update</Link>
+            <Link className="upbtn" to={"/update/"+item._id}>Update</Link>
           </li>
         </ul>
       ))}
