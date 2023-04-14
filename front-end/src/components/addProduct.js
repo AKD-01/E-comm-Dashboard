@@ -5,7 +5,12 @@ const AddProduct = () => {
   const [price, setPrice] = React.useState("");
   const [category, setCategory] = React.useState("");
   const [company, setCompany] = React.useState("");
+  const [error, setError] = React.useState(false);
   const submitHandler = async () => {
+    if(!name || !price || !category || !company) {
+        setError(true);
+        return false;
+    }
     const userId = JSON.parse(localStorage.getItem('user'))._id;
     let result = await fetch("http://localhost:5000/add-product", {
       method: "post",
