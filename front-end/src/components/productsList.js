@@ -39,7 +39,7 @@ const ProductsList = () => {
           <li>{item.category}</li>
           <li>{item.company}</li>
           <li>
-            <button onClick={() => deleteProduct(item._id)}>Delete</button>
+            <button className="opbtn" onClick={() => deleteProduct(item._id)}>Delete</button>
           </li>
         </ul>
       ))}
