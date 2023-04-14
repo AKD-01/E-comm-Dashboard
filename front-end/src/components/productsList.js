@@ -10,7 +10,6 @@ const ProductsList = () => {
     result = await result.json();
     setProducts(result);
   };
-  console.log("products", products);
   return (
     <div className="product-list">
       <h1>Products List</h1>
