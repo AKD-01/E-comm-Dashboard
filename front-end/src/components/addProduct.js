@@ -7,11 +7,11 @@ const AddProduct = () => {
   const [company, setCompany] = React.useState("");
   const [error, setError] = React.useState(false);
   const submitHandler = async () => {
-    if(!name || !price || !category || !company) {
-        setError(true);
-        return false;
+    if (!name || !price || !category || !company) {
+      setError(true);
+      return false;
     }
-    const userId = JSON.parse(localStorage.getItem('user'))._id;
+    const userId = JSON.parse(localStorage.getItem("user"))._id;
     let result = await fetch("http://localhost:5000/add-product", {
       method: "post",
       body: JSON.stringify({ name, price, category, userId, company }),
@@ -34,6 +34,9 @@ const AddProduct = () => {
         type="text"
         placeholder="Enter Product Name"
       />
+      {error && !name && (
+        <span className="invalid-input">Enter Valid Name</span>
+      )}
       <input
         className="inputfield"
         value={price}
@@ -43,6 +46,9 @@ const AddProduct = () => {
         type="text"
         placeholder="Enter Product Price"
       />
+      {error && !price && (
+        <span className="invalid-input">Enter Valid Price</span>
+      )}
       <input
         className="inputfield"
         value={category}
@@ -52,6 +58,9 @@ const AddProduct = () => {
         type="text"
         placeholder="Enter Product Category"
       />
+      {error && !category && (
+        <span className="invalid-input">Enter Valid Category</span>
+      )}
       <input
         className="inputfield"
         value={company}
@@ -61,6 +70,9 @@ const AddProduct = () => {
         type="text"
         placeholder="Enter Product Company"
       />
+      {error && !company && (
+        <span className="invalid-input">Enter Valid Company</span>
+      )}
       <button onClick={submitHandler} className="btn" type="button">
         Add Product
       </button>
