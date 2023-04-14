@@ -33,7 +33,7 @@ const ProductsList = () => {
         <li>Operation</li>
       </ul>
       {products.map((item, index) => (
-        <ul>
+        <ul key={item._id}>
           <li>{index + 1}</li>
           <li>{item.name}</li>
           <li>$ {item.price}</li>
@@ -43,7 +43,9 @@ const ProductsList = () => {
             <button className="delbtn" onClick={() => deleteProduct(item._id)}>
               Delete
             </button>
-            <Link className="upbtn" to={"/update/"+item._id}>Update</Link>
+            <Link className="upbtn" to={"/update/" + item._id}>
+              Update
+            </Link>
           </li>
         </ul>
       ))}
