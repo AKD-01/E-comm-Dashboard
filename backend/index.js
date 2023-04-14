@@ -44,4 +44,8 @@ app.get("/products", async (req, res) => {
   }
 });
 
+app.delete("/products/:_id", async (req, res) => {
+  res.send("working...");
+});
+
 app.listen(5000);
