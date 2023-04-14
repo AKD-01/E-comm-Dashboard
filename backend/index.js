@@ -44,8 +44,9 @@ app.get("/products", async (req, res) => {
   }
 });
 
-app.delete("/products/:_id", async (req, res) => {
-  res.send("working...");
+app.delete("/products/:id", async (req, res) => {
+  const result = await Product.deleteOne({ _id: req.params.id });
+  res.send(result);
 });
 
 app.listen(5000);
