@@ -63,6 +63,23 @@
   margin-left: 20px;
 }
 
+.product-list {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.product-list ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.product-list ul li {
+  display: inline-block;
+  border: 1px solid aquamarine;
+  padding: 5px;
+  width: 160px;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
