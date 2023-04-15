@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 
 const ProductsList = () => {
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     getProducts();
   }, []);
+
   const getProducts = async () => {
     let result = await fetch("http://localhost:5000/products");
     result = await result.json();
     setProducts(result);
   };
+
   const deleteProduct = async (id) => {
     let result = await fetch(`http://localhost:5000/products/${id}`, {
       method: "delete",
@@ -21,10 +24,25 @@ const ProductsList = () => {
       alert("Record is deleted");
     }
   };
+
+  const searchHandler = async (e) => {
+    let key = e.target.value;
+    let result = await fetch(`http://localhost:5000/search/${key}`);
+    result = await result.json();
+    if (result) {
+      setProducts(result);
+    }
+  };
+
   return (
     <div className="product-list">
       <h1>Products List</h1>
-      <input className="search-box" type="search" placeholder="Search Product" />
+      <input
+        className="search-box"
+        onChange={searchHandler}
+        type="text"
+        placeholder="Search Product"
+      />
       <ul>
         <li>S. No</li>
         <li>Name</li>
