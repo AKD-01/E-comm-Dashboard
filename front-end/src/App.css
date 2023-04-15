@@ -102,6 +102,18 @@
   width: 160px;
 }
 
+.search-box {
+  width: 500px;
+  margin: 20px;
+  height: 40px;
+  border: 1px solid aquamarine;
+  padding-left: 20px;
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: black;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
