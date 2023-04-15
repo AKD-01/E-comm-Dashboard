@@ -27,10 +27,14 @@ const ProductsList = () => {
 
   const searchHandler = async (e) => {
     let key = e.target.value;
-    let result = await fetch(`http://localhost:5000/search/${key}`);
-    result = await result.json();
-    if (result) {
-      setProducts(result);
+    if (key) {
+      let result = await fetch(`http://localhost:5000/search/${key}`);
+      result = await result.json();
+      if (result) {
+        setProducts(result);
+      }
+    } else {
+      getProducts();
     }
   };
 
@@ -40,7 +44,7 @@ const ProductsList = () => {
       <input
         className="search-box"
         onChange={searchHandler}
-        type="text"
+        type="search"
         placeholder="Search Product"
       />
       <ul>
@@ -51,23 +55,30 @@ const ProductsList = () => {
         <li>Company</li>
         <li>Operation</li>
       </ul>
-      {products.map((item, index) => (
-        <ul key={item._id}>
-          <li>{index + 1}</li>
-          <li>{item.name}</li>
-          <li>$ {item.price}</li>
-          <li>{item.category}</li>
-          <li>{item.company}</li>
-          <li>
-            <button className="delbtn" onClick={() => deleteProduct(item._id)}>
-              Delete
-            </button>
-            <Link className="upbtn" to={"/update/" + item._id}>
-              Update
-            </Link>
-          </li>
-        </ul>
-      ))}
+      {products.length > 0 ? (
+        products.map((item, index) => (
+          <ul key={item._id}>
+            <li>{index + 1}</li>
+            <li>{item.name}</li>
+            <li>$ {item.price}</li>
+            <li>{item.category}</li>
+            <li>{item.company}</li>
+            <li>
+              <button
+                className="delbtn"
+                onClick={() => deleteProduct(item._id)}
+              >
+                Delete
+              </button>
+              <Link className="upbtn" to={"/update/" + item._id}>
+                Update
+              </Link>
+            </li>
+          </ul>
+        ))
+      ) : (
+        <h1>No Result Found.</h1>
+      )}
     </div>
   );
 };
