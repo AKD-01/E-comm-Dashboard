@@ -24,6 +24,7 @@ const ProductsList = () => {
   return (
     <div className="product-list">
       <h1>Products List</h1>
+      <input className="search-box" type="search" placeholder="Search Product" />
       <ul>
         <li>S. No</li>
         <li>Name</li>
