@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.post("/signup", async (req, res) => {
+app.post("/signup", verifyToken, async (req, res) => {
   let user = new User(req.body);
   let result = await user.save();
   result = result.toObject();
