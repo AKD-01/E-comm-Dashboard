@@ -47,7 +47,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.post("/add-product", async (req, res) => {
+app.post("/add-product", verifyToken, async (req, res) => {
   let product = new Product(req.body);
   let result = await product.save();
   res.send(result);
@@ -84,7 +84,7 @@ app.put("/products/:id", async (req, res) => {
   res.send(result);
 });
 
-app.get("/search/:key", async (req, res) => {
+app.get("/search/:key", verifyToken, async (req, res) => {
   let result = await Product.find({
     $or: [
       { name: { $regex: req.params.key } },
@@ -94,5 +94,21 @@ app.get("/search/:key", async (req, res) => {
   });
   res.send(result);
 });
+
+function verifyToken(req, res, next) {
+  let token = req.headers["authorization"];
+  if (token) {
+    token = token.split(" ")[1];
+    JWT.verify(token, JwtKey, (err, valid) => {
+      if (err) {
+        res.status(401).send({ result: "Please provide a valid token" });
+      } else {
+        next();
+      }
+    });
+  } else {
+    res.status(403).send({ result: "Please add token with header" });
+  }
+}
 
 app.listen(5000);
