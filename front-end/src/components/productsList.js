@@ -21,11 +21,13 @@ const ProductsList = () => {
   const deleteProduct = async (id) => {
     let result = await fetch(`http://localhost:5000/products/${id}`, {
       method: "delete",
+      headers: {
+        authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
     });
     result = await result.json();
     if (result) {
       getProducts();
-      alert("Record is deleted");
     }
   };
 
