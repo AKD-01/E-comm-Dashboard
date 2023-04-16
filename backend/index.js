@@ -76,7 +76,7 @@ app.get("/products/:id", verifyToken, async (req, res) => {
   }
 });
 
-app.put("/products/:id", async (req, res) => {
+app.put("/products/:id", verifyToken, async (req, res) => {
   let result = await Product.updateOne(
     { _id: req.params.id },
     { $set: req.body }
