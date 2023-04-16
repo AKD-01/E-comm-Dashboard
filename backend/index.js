@@ -28,7 +28,7 @@ app.post("/login", async (req, res) => {
             result: "Something went wrong, please try after sometime.",
           });
         } else {
-          res.send(user, { auth: token });
+          res.send({ user, auth: token });
         }
       });
     } else {
