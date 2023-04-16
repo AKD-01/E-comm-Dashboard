@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const User = require("./db/user");
 const Product = require("./db/product");
+const JWT = require("jsonwebtoken");
+const JwtKey = "e-commerce2023";
 require("./db/config");
 
 const app = express();
