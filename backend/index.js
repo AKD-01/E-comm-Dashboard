@@ -67,7 +67,7 @@ app.delete("/products/:id", verifyToken, async (req, res) => {
   res.send(result);
 });
 
-app.get("/products/:id", async (req, res) => {
+app.get("/products/:id", verifyToken, async (req, res) => {
   let result = await Product.findOne({ _id: req.params.id });
   if (result) {
     res.send(result);
