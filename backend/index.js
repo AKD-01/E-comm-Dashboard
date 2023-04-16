@@ -53,7 +53,7 @@ app.post("/add-product", verifyToken, async (req, res) => {
   res.send(result);
 });
 
-app.get("/products", async (req, res) => {
+app.get("/products", verifyToken, async (req, res) => {
   let products = await Product.find();
   if (products.length > 0) {
     res.send(products);
