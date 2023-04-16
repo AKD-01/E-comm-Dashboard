@@ -22,7 +22,15 @@ app.post("/login", async (req, res) => {
   if (req.body.password && req.body.email) {
     let user = await User.findOne(req.body).select("-password");
     if (user) {
-      res.send(user);
+      JWT.sign({ user }, JwtKey, { expiresIn: "2h" }, (err, token) => {
+        if (err) {
+          res.send({
+            result: "Something went wrong, please try after sometime.",
+          });
+        } else {
+          res.send(user, { auth: token });
+        }
+      });
     } else {
       res.send({ result: "No such user found." });
     }
