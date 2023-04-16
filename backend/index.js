@@ -15,7 +15,15 @@ app.post("/signup", async (req, res) => {
   let result = await user.save();
   result = result.toObject();
   delete result.password;
-  res.send(result);
+  JWT.sign({ result }, JwtKey, { expiresIn: "2h" }, (err, token) => {
+    if (err) {
+      res.send({
+        result: "Something went wrong, please try after sometime.",
+      });
+    } else {
+      res.send({ result, auth: token });
+    }
+  });
 });
 
 app.post("/login", async (req, res) => {
