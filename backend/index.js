@@ -62,7 +62,7 @@ app.get("/products", verifyToken, async (req, res) => {
   }
 });
 
-app.delete("/products/:id", async (req, res) => {
+app.delete("/products/:id", verifyToken, async (req, res) => {
   let result = await Product.deleteOne({ _id: req.params.id });
   res.send(result);
 });
