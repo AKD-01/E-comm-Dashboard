@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path")
 const User = require("./db/user");
 const Product = require("./db/product");
 const JWT = require("jsonwebtoken");
