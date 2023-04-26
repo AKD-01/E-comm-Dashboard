@@ -14,7 +14,7 @@ const UpdateProduct = () => {
   }, []);
 
   const getProductDetails = async () => {
-    let result = await fetch(`http://localhost:5000/products/${params.id}`, {
+    let result = await fetch(`/products/${params.id}`, {
       headers: {
         authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
       },
@@ -27,7 +27,7 @@ const UpdateProduct = () => {
   };
 
   const submitHandler = async () => {
-    let result = await fetch(`http://localhost:5000/products/${params.id}`, {
+    let result = await fetch(`/products/${params.id}`, {
       method: "put",
       body: JSON.stringify({ name, price, category, company }),
       headers: {

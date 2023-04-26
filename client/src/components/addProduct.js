@@ -15,7 +15,7 @@ const AddProduct = () => {
       return false;
     }
     const userId = JSON.parse(localStorage.getItem("user"))._id;
-    let result = await fetch("http://localhost:5000/add-product", {
+    let result = await fetch("/add-product", {
       method: "post",
       body: JSON.stringify({ name, price, category, userId, company }),
       headers: {
