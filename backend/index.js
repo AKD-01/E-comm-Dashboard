@@ -8,7 +8,13 @@ require("./db/config");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  {
+    origin: [],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true
+  }
+));
 
 app.post("/signup", async (req, res) => {
   let user = new User(req.body);
